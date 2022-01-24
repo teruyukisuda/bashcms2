@@ -44,7 +44,7 @@ while read d ; do
 	awk '{if(/^$/){print "NO TITLE"}else{print}}
 		END{if(NR==0){print "NO TITLE"}}'		|
 	tee "$datadir/$d/title"						|
-	awk -v d="${d}" 'gsub(/s\//,"=",d);
+	awk -v d="${d}" '{jgsub(/s\//,"=",d);
 			print "<a href=\"/?" d "\">" $0 "</a>"}' > "$datadir/$d/link"
 	
 	touch "$datadir/$d/nav"
