@@ -11,12 +11,14 @@ tmp=/tmp/$$
 dir="$(tr -dc 'a-zA-Z0-9_=' <<< ${QUERY_STRING} | sed 's;=;s/;')"
 md="$contentsdir/$dir/main.md"
 [ -f "$md" ]
+
 ### MAKE METADATA ###
 cat << FIN > $tmp-meta.yaml
 ---
-created_time: $(date -f - < $datadir/$dir/created_time)
-modified_time: $(date -f - < $datadir/$dir/modified_time)
-title: $(grep '^# ' "$md" | sed 's/^# *//')
+created_time: '$(date -f - < "$datadir/$dir/created_time")'
+modified_time: '$(date -f - < "$datadir/$dir/modified_time")'
+title: '$(cat "$datadir/$dir/title")'
+nav: '$(cat "$datadir/$dir/nav)'
 ---
 FIN
 
