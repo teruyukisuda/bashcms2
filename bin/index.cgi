@@ -18,7 +18,7 @@ cat << FIN > $tmp-meta.yaml
 created_time: '$(date -f - < "$datadir/$dir/created_time")'
 modified_time: '$(date -f - < "$datadir/$dir/modified_time")'
 title: '$(cat "$datadir/$dir/title")'
-nav: '$(cat "$datadir/$dir/nav)'
+nav: '$(cat "$datadir/$dir/nav")'
 ---
 FIN
 
