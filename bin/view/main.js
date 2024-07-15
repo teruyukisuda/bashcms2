@@ -2,7 +2,7 @@ window.onload = function () {
     lastArticles(10);
     rankArticles(10);
     linkKeywords();
-//    fullSearch("");
+    fullSearch("");
 }
 
 function lastArticles(num){
