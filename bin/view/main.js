@@ -1,5 +1,5 @@
 window.onload = function () {
-    lastArticles(10);
+    lastArticles(3);
     rankArticles(10);
     linkKeywords();
     fullSearch("");
