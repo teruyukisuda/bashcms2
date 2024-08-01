@@ -7,3 +7,4 @@ num=$(tr -dc '0-9' <<< ${QUERY_STRING})
 
 ls -lU "$datadir/counters"   |
 tail -n +2                   |
+
