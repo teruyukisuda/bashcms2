@@ -7,4 +7,11 @@ num=$(tr -dc '0-9' <<< ${QUERY_STRING})
 
 ls -lU "$datadir/counters"   |
 tail -n +2                   |
-
+awk '{print $5,$NF}'         |
+sed 's;_;/;'                 |
+sort -s -k1,1nr              |
+head -n "$num"               |
+while read pv d; do
+    cat "$datadir/$d/link_date" | sed "s;</a>;($pv views)&<br/>;"
+done |
+sed '1iContent-Type: text/html\n\n<h1>PV Ranking</h1>'
